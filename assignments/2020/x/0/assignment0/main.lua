@@ -377,8 +377,23 @@ function love.draw()
     elseif gameState == 'done' then
         -- UI messages
         love.graphics.setFont(largeFont)
-        love.graphics.printf('Player ' .. tostring(winningPlayer) .. ' wins!',
-            0, 10, VIRTUAL_WIDTH, 'center')
+        if player1.mode == 'cpu' and winningPlayer == 1 then
+            love.graphics.printf('CPU ' .. tostring(winningPlayer) .. ' wins!',
+                    0, 10, VIRTUAL_WIDTH, 'center')
+        end
+
+        if player2.mode == 'cpu' and winningPlayer == 2 then
+            love.graphics.printf('CPU ' .. tostring(winningPlayer) .. ' wins!',
+                    0, 10, VIRTUAL_WIDTH, 'center')
+        end
+
+        if player1.mode == 'player' and winningPlayer == 1 then
+            love.graphics.printf('Player ' .. tostring(winningPlayer) .. ' wins!',
+                    0, 10, VIRTUAL_WIDTH, 'center')        end
+
+        if player2.mode == 'player' and winningPlayer == 2 then
+            love.graphics.printf('Player ' .. tostring(winningPlayer) .. ' wins!',
+                    0, 10, VIRTUAL_WIDTH, 'center')        end
         love.graphics.setFont(smallFont)
         love.graphics.printf('Press Enter to restart!', 0, 30, VIRTUAL_WIDTH, 'center')
     end
